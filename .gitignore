@@ -53,3 +53,8 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# extra
+bin/
+obj/
+.vs/
