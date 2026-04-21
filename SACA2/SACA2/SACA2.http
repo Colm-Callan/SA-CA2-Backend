@@ -1,0 +1,6 @@
+@SACA2_HostAddress = http://localhost:5007
+
+GET {{SACA2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
