@@ -12,7 +12,7 @@ using SACA2.Data;
 namespace SACA2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260422182408_InitialCreate")]
+    [Migration("20260422185138_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

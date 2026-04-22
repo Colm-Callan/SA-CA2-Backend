@@ -17,8 +17,39 @@ public class FixtureController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetFixtures()
     {
-        var fixtures = await _context.Fixtures.ToListAsync();
-        return Ok(fixtures);
+        // var fixtures = await _context.Fixtures.ToListAsync();
+        var fixtures = await _context.Fixtures
+            .Include(f => f.HomeTeam)
+            .Include(f => f.AwayTeam)
+            .Include(f => f.Pitch)
+            .ToListAsync();
+
+        var result = fixtures.Select(f => new
+        {
+            f.Id,
+            MatchDate = f.MatchDate,
+
+            // passes names and ids
+            HomeTeam = new
+            {
+                f.HomeTeam.Id,
+                f.HomeTeam.Name
+            },
+
+            AwayTeam = new
+            {
+                f.AwayTeam.Id,
+                f.AwayTeam.Name
+            },
+
+            Pitch = new
+            {
+                f.Pitch.Id,
+                f.Pitch.Name
+            }
+        });
+
+        return Ok(result);
     }
 
     [HttpPost]
