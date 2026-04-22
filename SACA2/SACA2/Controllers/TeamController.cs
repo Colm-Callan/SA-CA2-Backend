@@ -43,24 +43,53 @@ namespace SACA2.Controllers
             _context.Teams.Add(team);
             await _context.SaveChangesAsync();
 
-            // Find another team (not itself)
-            var opponent = await _context.Teams
+            var existingTeams = await _context.Teams
                 .Where(t => t.Id != team.Id)
-                .OrderBy(t => Guid.NewGuid()) // random
-                .FirstOrDefaultAsync();
+                .ToListAsync();
 
-            if (opponent != null)
+            var pitches = await _context.Pitches.ToListAsync();
+
+            if (!pitches.Any())
+                return BadRequest("No pitches available");
+
+            var fixtures = new List<Fixture>();
+            int pitchIndex = 0;
+
+            foreach (var opponent in existingTeams)
             {
-                var fixture = new Fixture
+                var pitch = pitches[pitchIndex % pitches.Count];
+
+                var matchTime = DateTime.UtcNow.AddHours(fixtures.Count);
+
+                // CHECK 2 avoid dupe match
+                var exists = await _context.Fixtures.AnyAsync(f =>
+                    (f.HomeTeamId == team.Id && f.AwayTeamId == opponent.Id) ||
+                    (f.HomeTeamId == opponent.Id && f.AwayTeamId == team.Id));
+
+                if (exists)
+                    continue;
+
+                // CHECK 4 pitch availability at that time
+                var pitchBusy = await _context.Fixtures.AnyAsync(f =>
+                    f.PitchId == pitch.Id &&
+                    f.MatchDate == matchTime);
+
+                if (pitchBusy)
+                    continue;
+
+                fixtures.Add(new Fixture
                 {
                     HomeTeamId = team.Id,
                     AwayTeamId = opponent.Id,
-                    MatchDate = DateTime.UtcNow.AddDays(1)
-                };
+                    PitchId = pitch.Id,
+                    MatchDate = matchTime
+                });
 
-                _context.Fixtures.Add(fixture);
-                await _context.SaveChangesAsync();
+                pitchIndex++;
             }
+
+            _context.Fixtures.AddRange(fixtures);
+            await _context.SaveChangesAsync();
 
             return Ok(team);
         }

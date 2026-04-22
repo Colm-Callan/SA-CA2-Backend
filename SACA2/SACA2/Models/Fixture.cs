@@ -7,8 +7,12 @@
         public int HomeTeamId { get; set; }
         public int AwayTeamId { get; set; }
 
-        public DateTime MatchDate { get; set; } = DateTime.UtcNow;
+        public Team? HomeTeam { get; set; }
+        public Team? AwayTeam { get; set; }
 
+        public int PitchId { get; set; }
+        public Pitch? Pitch { get; set; }
 
+        public DateTime MatchDate { get; set; }
     }
 }

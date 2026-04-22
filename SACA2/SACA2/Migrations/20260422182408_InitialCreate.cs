@@ -13,18 +13,16 @@ namespace SACA2.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Fixtures",
+                name: "Pitches",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    HomeTeamId = table.Column<int>(type: "integer", nullable: false),
-                    AwayTeamId = table.Column<int>(type: "integer", nullable: false),
-                    MatchDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Name = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Fixtures", x => x.Id);
+                    table.PrimaryKey("PK_Pitches", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,6 +75,55 @@ namespace SACA2.Migrations
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Fixtures",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    HomeTeamId = table.Column<int>(type: "integer", nullable: false),
+                    AwayTeamId = table.Column<int>(type: "integer", nullable: false),
+                    PitchId = table.Column<int>(type: "integer", nullable: false),
+                    MatchDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fixtures", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Fixtures_Pitches_PitchId",
+                        column: x => x.PitchId,
+                        principalTable: "Pitches",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Fixtures_Teams_AwayTeamId",
+                        column: x => x.AwayTeamId,
+                        principalTable: "Teams",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Fixtures_Teams_HomeTeamId",
+                        column: x => x.HomeTeamId,
+                        principalTable: "Teams",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Fixtures_AwayTeamId",
+                table: "Fixtures",
+                column: "AwayTeamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Fixtures_HomeTeamId",
+                table: "Fixtures",
+                column: "HomeTeamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Fixtures_PitchId",
+                table: "Fixtures",
+                column: "PitchId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Teams_Name",
                 table: "Teams",
@@ -100,10 +147,13 @@ namespace SACA2.Migrations
                 name: "Players");
 
             migrationBuilder.DropTable(
-                name: "Teams");
+                name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Pitches");
+
+            migrationBuilder.DropTable(
+                name: "Teams");
         }
     }
 }

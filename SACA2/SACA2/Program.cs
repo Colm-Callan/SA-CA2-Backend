@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SACA2.Data;
+using SACA2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Railway provides DATABASE_URL automatically
 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL")
     ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -26,3 +26,4 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
+
