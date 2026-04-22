@@ -12,7 +12,7 @@ using SACA2.Data;
 namespace SACA2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260422163214_InitialCreate")]
+    [Migration("20260422171528_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -109,6 +109,9 @@ namespace SACA2.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Teams");
                 });
 
@@ -129,6 +132,9 @@ namespace SACA2.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
