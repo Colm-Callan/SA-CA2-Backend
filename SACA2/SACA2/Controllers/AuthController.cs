@@ -27,7 +27,7 @@ namespace SACA2.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return Ok("Signup successful");
+            return Ok(new { message = "Signup successful" });
         }
 
         [HttpPost("login")]
@@ -39,7 +39,18 @@ namespace SACA2.Controllers
             if (existingUser == null)
                 return Unauthorized("Invalid credentials");
 
-            return Ok("Login successful");
+            return Ok(new
+            { 
+                message = "Login successful",
+                user = new
+                {
+                    existingUser.Id,
+                    existingUser.Email
+                }
+            });
+
+
+
         }
     }
 }

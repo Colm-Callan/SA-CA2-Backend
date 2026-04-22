@@ -43,6 +43,25 @@ namespace SACA2.Controllers
             _context.Teams.Add(team);
             await _context.SaveChangesAsync();
 
+            // Find another team (not itself)
+            var opponent = await _context.Teams
+                .Where(t => t.Id != team.Id)
+                .OrderBy(t => Guid.NewGuid()) // random
+                .FirstOrDefaultAsync();
+
+            if (opponent != null)
+            {
+                var fixture = new Fixture
+                {
+                    HomeTeamId = team.Id,
+                    AwayTeamId = opponent.Id,
+                    MatchDate = DateTime.UtcNow.AddDays(1)
+                };
+
+                _context.Fixtures.Add(fixture);
+                await _context.SaveChangesAsync();
+            }
+
             return Ok(team);
         }
 
@@ -56,7 +75,7 @@ namespace SACA2.Controllers
                 return NotFound("Team not found");
 
             existingTeam.Name = team.Name;
-            existingTeam.Logo = team.Logo;
+            //existingTeam.Logo = team.Logo;
             existingTeam.Wins = team.Wins;
             existingTeam.Draws = team.Draws;
             existingTeam.Losses = team.Losses;

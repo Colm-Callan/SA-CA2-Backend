@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SACA2.Data;
 
 var builder = WebApplication.CreateBuilder(args);
