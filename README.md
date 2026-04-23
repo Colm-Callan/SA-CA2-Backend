@@ -1,7 +1,7 @@
 ## SA-CA2-Backend
-# App Name:
+# App Name: "Peamount 6 v 6 League"
 
-## BY
+## BY:
 # Callum Glasgow X00201142
 # Colm Callan X00195992
 
