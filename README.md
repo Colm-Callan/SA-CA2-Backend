@@ -62,3 +62,28 @@ x
 ## Testing report:
 # here 
 
+## URI Scheme:
+# Auth Endpoints
+POST   https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Auth/signup
+POST   https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Auth/login
+
+# Team Endpoints
+GET    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Team
+POST   https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Team
+GET    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Team/{id}
+PUT    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Team/{id}
+DELETE https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Team/{id}
+
+# Player Endpoints
+GET    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Player
+POST   https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Player
+GET    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Player/{id}
+PUT    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Player/{id}
+DELETE https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Player/{id}
+GET    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Player/team/{teamId}
+
+# Fixture Endpoints
+GET    https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Fixture
+POST   https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Fixture
+POST   https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Fixture/generate/{date}
+POST   https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/api/Fixture/generate-multiple/{days}
