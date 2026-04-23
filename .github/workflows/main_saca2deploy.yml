@@ -23,11 +23,14 @@ jobs:
         with:
           dotnet-version: '8.x'
 
+      - name: Restore dependencies
+        run: dotnet restore SACA2/SACA2.sln
+
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build SACA2/SACA2.sln --configuration Release --no-restore
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ./myapp
+        run: dotnet publish SACA2/SACA2/SACA2.csproj -c Release -o ./myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
