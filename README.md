@@ -46,11 +46,9 @@ Cd SA-CA2-Backend\SACA2\SAC2-Test
 
 
 
-
-## Deployed backed
-
-# url: https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/swagger/index.html
-
+## Deployed via azure using GitHub Actions
+# Deployed backed url: https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/swagger/index.html
+# Deployed DB url: saca2dbv2.postgres.database.azure.com
 <img width="1905" height="978" alt="Screenshot 2026-04-23 191954" src="https://github.com/user-attachments/assets/9d03eb78-2f9d-4ce1-b68f-9a09586754ee" />
 
 ## Azure config for Backend and PostgreSQL db
