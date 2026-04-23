@@ -50,6 +50,8 @@ app.Use(async (context, next) =>
 
 app.MapControllers();
 
+
+public partial class Program { }
 app.MapGet("/", context =>
 {
     context.Response.Redirect("/swagger/index.html");
