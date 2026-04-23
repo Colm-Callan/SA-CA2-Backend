@@ -50,15 +50,13 @@ app.Use(async (context, next) =>
 
 app.MapControllers();
 
-
-public partial class Program { }
 app.MapGet("/", context =>
 {
     context.Response.Redirect("/swagger/index.html");
     return Task.CompletedTask;
 });
 
-// db health check
+// Database health check
 app.MapGet("/health/db", async (AppDbContext context) =>
 {
     try
@@ -74,3 +72,6 @@ app.MapGet("/health/db", async (AppDbContext context) =>
 });
 
 app.Run();
+
+
+public partial class Program { }
