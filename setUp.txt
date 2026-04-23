@@ -20,4 +20,4 @@ dotnet ef database update
 ## test
 check if need dotnet tool install -g dotnet-reportgenerator-globaltool  
 dotnet test --collect:"XPlat Code Coverage"  
-reportgenerator -reports:TestResults/**/*.xml -targetdir:coverage-report -reporttypes:Html -classfilters:"-SACA2.Controllers.PlayerController;-SACA2.Models.Player"
+reportgenerator -reports:TestResults/**/*.xml -targetdir:coverage-report -reporttypes:Html -classfilters:"-SACA2.Migrations.*;-SACA2.Controllers.PlayerController;-SACA2.Models.Player"
