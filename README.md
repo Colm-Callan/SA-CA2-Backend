@@ -9,7 +9,9 @@
 
 
 ## how to set up
-go to SA-CA2-Backend\SACA2\SAC2
+clone down the repo
+
+Cd SA-CA2-Backend\SACA2\SAC2
 
 run these install commands
 
@@ -30,3 +32,6 @@ dotnet ef database update
 
 dotnet build
 dotnet run
+
+To set up the tests
+Cd SA-CA2-Backend\SACA2\SAC2-Test
