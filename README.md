@@ -35,3 +35,29 @@ dotnet run
 
 To set up the tests
 Cd SA-CA2-Backend\SACA2\SAC2-Test
+
+
+
+
+
+
+
+
+
+
+
+
+## Deployed backed
+
+# url: https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/swagger/index.html
+
+<img width="1905" height="978" alt="Screenshot 2026-04-23 191954" src="https://github.com/user-attachments/assets/9d03eb78-2f9d-4ce1-b68f-9a09586754ee" />
+
+## Azure config for Backend and PostgreSQL db
+
+<img width="1915" height="987" alt="Screenshot 2026-04-23 192110" src="https://github.com/user-attachments/assets/34101f96-a90d-4d2d-b1c3-445e5a8e6e81" />
+
+<img width="1908" height="979" alt="Screenshot 2026-04-23 192215" src="https://github.com/user-attachments/assets/e0d01bd0-9181-4075-bc57-1be2f31ed512" />
+
+
+
