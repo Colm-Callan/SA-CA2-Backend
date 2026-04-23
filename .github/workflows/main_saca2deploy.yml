@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: windows-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -23,30 +23,42 @@ jobs:
         with:
           dotnet-version: '8.x'
 
+      - name: Restore dependencies
+        run: dotnet restore SACA2/SACA2/SACA2.csproj
+
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build SACA2/SACA2/SACA2.csproj --configuration Release --no-restore
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish SACA2/SACA2/SACA2.csproj -c Release -o ./myapp
+
+      - name: Install EF Core tools
+        run: dotnet tool install --global dotnet-ef
+
+      - name: Run EF Core migrations
+        run: |
+          cd SACA2/SACA2
+          dotnet ef database update --configuration Release --connection "${{ secrets.DATABASE_URL }}"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./myapp
 
   deploy:
     runs-on: windows-latest
     needs: build
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
+          path: ./myapp
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -61,5 +73,4 @@ jobs:
         with:
           app-name: 'SACA2DEPLOY'
           slot-name: 'Production'
-          package: .
-          
+          package: ./myapp
