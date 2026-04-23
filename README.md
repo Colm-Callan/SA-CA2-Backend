@@ -5,11 +5,12 @@
 # Callum Glasgow X00201142
 # Colm Callan X00195992
 
-# Work distrubtion : evenly split between frontend, backend, DB and deploy work
+# Work distrubtion: 
+# evenly split between frontend, backend, DB and deploy work
 
 
 ## how to set up
-clone down the repo
+clone down the repo (https://github.com/Colm-Callan/SA-CA2-Backend.git)
 
 Cd SA-CA2-Backend\SACA2\SAC2
 
