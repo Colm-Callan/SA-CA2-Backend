@@ -9,6 +9,7 @@
 # evenly split between frontend, backend, DB and deploy work
 
 
+
 ## how to set up
 clone down the repo (https://github.com/Colm-Callan/SA-CA2-Backend.git)
 
@@ -40,12 +41,12 @@ Cd SA-CA2-Backend\SACA2\SAC2-Test
 
 
 
-
-
-
-
-
-
+x
+x
+x
+x
+x
+x
 
 ## Deployed via azure using GitHub Actions
 # Deployed backed url: https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/swagger/index.html
@@ -58,5 +59,6 @@ Cd SA-CA2-Backend\SACA2\SAC2-Test
 
 <img width="1908" height="979" alt="Screenshot 2026-04-23 192215" src="https://github.com/user-attachments/assets/e0d01bd0-9181-4075-bc57-1be2f31ed512" />
 
-
+## Testing report:
+# here 
 
