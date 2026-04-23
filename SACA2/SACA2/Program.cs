@@ -15,6 +15,7 @@ var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL")
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+Console.WriteLine("Connecting to DB: " + connectionString);
 
 builder.Services.AddScoped<FixtureGenerationService>();
 
@@ -30,3 +31,5 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

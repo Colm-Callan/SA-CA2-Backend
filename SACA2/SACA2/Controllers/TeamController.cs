@@ -40,6 +40,13 @@ namespace SACA2.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTeam([FromBody] Team team)
         {
+            // check for dupe teams
+            if (await _context.Teams.AnyAsync(t => t.Name == team.Name))
+            {
+                // return good error mesage
+                return Conflict($"A team with the name '{team.Name}' already exists.");
+            }
+
             _context.Teams.Add(team);
             await _context.SaveChangesAsync();
 
