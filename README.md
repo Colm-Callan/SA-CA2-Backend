@@ -66,12 +66,21 @@ x
 saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net
 
 /api/Auth/signup
+
 /api/Auth/login
+
 /api/Team
+
 /api/Team/{id}
+
 /api/Player
+
 /api/Player/{id}
+
 /api/Player/team/{teamId}
+
 /api/Fixture
+
 /api/Fixture/generate/{date}
+
 /api/Fixture/generate-multiple/{days}
