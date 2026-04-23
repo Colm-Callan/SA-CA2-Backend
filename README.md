@@ -1,9 +1,9 @@
-# SA-CA2-Backend
+## SA-CA2-Backend
 # App Name:
 
 ## BY
-## Callum Glasgow X00201142
-## Colm Callan X00195992
+# Callum Glasgow X00201142
+# Colm Callan X00195992
 
 # Work distrubtion : evenly split between frontend, backend, DB and deploy work
 
