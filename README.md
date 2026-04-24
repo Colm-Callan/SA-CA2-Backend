@@ -35,19 +35,6 @@ dotnet ef database update
 dotnet build
 dotnet run
 
-To set up the tests
-Cd SA-CA2-Backend\SACA2\SAC2-Test
-
-
-
-
-x
-x
-x
-x
-x
-x
-
 ## Deployed via azure using GitHub Actions
 # Deployed backed url: https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/swagger/index.html
 # Deployed DB url: saca2dbv2.postgres.database.azure.com
@@ -60,7 +47,51 @@ x
 <img width="1908" height="979" alt="Screenshot 2026-04-23 192215" src="https://github.com/user-attachments/assets/e0d01bd0-9181-4075-bc57-1be2f31ed512" />
 
 ## Testing report:
-# here 
+### Running Tests and Generating Coverage Reports
+
+Navigate to Tests folder
+```bash
+cd SA-CA2-Backend/SACA2/SACA2.Tests
+```
+
+---
+Run tests with coverage
+```bash
+dotnet test --collect:"XPlat Code Coverage"
+```
+
+---
+
+If missing report generator install
+```bash
+dotnet tool install -g dotnet-reportgenerator-globaltool
+```
+
+---
+
+Generate coverage report with
+```bash
+reportgenerator -reports:TestResults/**/*.xml -targetdir:coverage-report -reporttypes:Html -classfilters:"-SACA2.Migrations.*;-SACA2.Controllers.PlayerController;-SACA2.Models.Player"
+```
+
+---
+
+Open report file
+```
+SACA2.Tests/coverage-report/index.html
+```
+
+<img width="1678" height="900" alt="image" src="https://github.com/user-attachments/assets/109a3e93-af98-4f85-81cf-54da32b6edb8" />
+
+### Testing Summary
+I used XUnit to write the tests for backend making use of the built in HttpClient to test endpoints.
+
+Tests cover all core features such as 
+- Teams
+- Fixtures / Fixutre generation
+- Authorisation
+
+With these tests we have 93% line coverage and 81% branch coverage giving us a strongly tested backend API.
 
 ## URI Scheme:
 saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net
