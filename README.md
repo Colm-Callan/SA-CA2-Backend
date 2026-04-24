@@ -1,14 +1,13 @@
 ## SA-CA2-Backend
 # App Name: "Peamount 6 v 6 League"
 
-## BY:
-# Callum Glasgow X00201142
-# Colm Callan X00195992
+## BY: Callum Glasgow X00201142 and Colm Callan X00195992
 
 # Work distrubtion: 
-# evenly split between frontend, backend, DB and deploy work
+Evenly split between frontend, backend, DB and deploy work
 
-
+## Project Aim
+Create a application for a mini football league where groups of friends can register a team to the league. The project can then generate fixtures for those teams at designated pitches and times to play. The league can store current standings to create a leaderboard and show current league winners. 
 
 ## how to set up
 clone down the repo (https://github.com/Colm-Callan/SA-CA2-Backend.git)
@@ -36,8 +35,11 @@ dotnet build
 dotnet run
 
 ## Deployed via azure using GitHub Actions
-# Deployed backed url: https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/swagger/index.html
-# Deployed DB url: saca2dbv2.postgres.database.azure.com
+# Deployed backed url: 
+https://saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net/swagger/index.html
+# Deployed DB url: 
+saca2dbv2.postgres.database.azure.com
+#
 <img width="1905" height="978" alt="Screenshot 2026-04-23 191954" src="https://github.com/user-attachments/assets/9d03eb78-2f9d-4ce1-b68f-9a09586754ee" />
 
 ## Azure config for Backend and PostgreSQL db
