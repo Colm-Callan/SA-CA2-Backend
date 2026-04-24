@@ -117,3 +117,19 @@ saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net
 /api/Fixture/generate/{date}
 
 /api/Fixture/generate-multiple/{days}
+
+## App Screenshots
+
+View All in /Screenshots folder
+--
+
+<img width="1080" height="2400" alt="Home" src="https://github.com/user-attachments/assets/604513c0-427c-4c53-aa3b-fb41032db629" />
+
+--
+
+<img width="1080" height="2400" alt="Fixture" src="https://github.com/user-attachments/assets/8d81df58-e605-4078-9c67-0cdffbb046d6" />
+
+-- 
+
+<img width="1080" height="2400" alt="RegisterEs" src="https://github.com/user-attachments/assets/9ca5903b-418b-4d1c-be01-3f212af222ff" />
+
