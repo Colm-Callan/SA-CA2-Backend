@@ -95,6 +95,12 @@ Tests cover all core features such as
 
 With these tests we have 93% line coverage and 81% branch coverage giving us a strongly tested backend API.
 
+We done some user acceptable testing by giving the app to some family members with androids to test as well and they said it worked well
+
+## Internationalisation:
+We added Spanish as a second language available for accessibility for any spanish users to use, we had some complications with the emulator and had to find 
+a way to change the language for testing but it works perfectly fine when tested on a physical android device when the language is changed in settings
+
 ## URI Scheme:
 saca2deploy-a0gsbuavepa7asd6.polandcentral-01.azurewebsites.net
 
